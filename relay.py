@@ -147,6 +147,7 @@ async def send_pushover_attempt(
         "user": config["pushover_user_key"],
         "message": message,
         "title": PUSHOVER_TITLE,
+        "priority": 1,
     }
 
     try:

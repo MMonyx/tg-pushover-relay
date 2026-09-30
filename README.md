@@ -12,6 +12,8 @@ Relay подключается к Telegram через обычную польз�
 
 Текущий стабильный production-релиз: **v1.0.0**
 
+**Изменение после v1.0.0:** эта версия кода отправляет `priority=1` (High), без emergency-повторов. Поле `sound` не передаётся: используется выбранный в Pushover звук. Для отдельной громкости на iPhone включите в Pushover **Critical Alerts for high-priority**, разрешите критические уведомления в iOS и настройте их громкость. Сам по себе `priority=1` громкость не повышает. Описанное ниже стандартное поведение относится к тегу v1.0.0.
+
 ---
 
 ## Что делает программа
@@ -848,6 +850,8 @@ A small Linux daemon that forwards fresh private Telegram alerts from **one expl
 The relay uses a normal Telegram user session through Telethon, applies a strict numeric sender-ID filter, and forwards only eligible text/caption content to Pushover.
 
 Current stable production release: **v1.0.0**
+
+**Post-v1.0.0 change:** this code sends `priority=1` (High), without emergency repetitions. It omits `sound`, preserving the sound selected in Pushover. For separate alert volume on iPhone, enable **Critical Alerts for high-priority** in Pushover, grant iOS Critical Alerts permission, and adjust their volume. `priority=1` alone does not increase volume. The default behavior documented below applies to the v1.0.0 tag.
 
 ---
 
