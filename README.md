@@ -10,9 +10,9 @@
 
 Relay подключается к Telegram через обычную пользовательскую сессию с помощью Telethon, применяет строгий фильтр по числовому sender ID и отправляет в Pushover только разрешённый текст или caption.
 
-Текущий стабильный production-релиз: **v1.0.0**
+Текущий стабильный production-релиз: **v1.0.1**
 
-**Изменение после v1.0.0:** эта версия кода отправляет `priority=1` (High), без emergency-повторов. Поле `sound` не передаётся: используется выбранный в Pushover звук. Для отдельной громкости на iPhone включите в Pushover **Critical Alerts for high-priority**, разрешите критические уведомления в iOS и настройте их громкость. Сам по себе `priority=1` громкость не повышает. Описанное ниже стандартное поведение относится к тегу v1.0.0.
+**В v1.0.1:** уведомления отправляются с `priority=1` (High), без emergency-повторов. Выбранный в Pushover звук сохраняется. Настройка Critical Alerts на iPhone описана ниже.
 
 ---
 
@@ -108,7 +108,16 @@ Relay отправляет сообщения на:
 https://api.pushover.net/1/messages.json
 ```
 
-v1.0.0 не задаёт отдельный sound или priority. Используется стандартное поведение Pushover.
+Relay отправляет `priority=1` (High). Поле `sound` не передаётся: используется выбранный в Pushover звук, включая кастомный. Emergency-повторы и подтверждение уведомления не включаются.
+
+### Громкие уведомления на iPhone
+
+1. В настройках Pushover включите **Critical Alerts for high-priority**.
+2. Разрешите критические уведомления в запросе iOS. Если разрешение ранее отклонено, проверьте настройки уведомлений Pushover в iOS.
+3. Настройте отдельную громкость Critical Alerts и выберите нужный звук для high-priority, если приложение предлагает отдельный выбор.
+4. После запуска relay заблокируйте iPhone и вызовите один новый алерт от настроенного Telegram-бота. Проверьте звук и громкость.
+
+`priority=1` сам по себе не повышает громкость. Critical Alerts могут звучать при беззвучном режиме и «Не беспокоить». Relay не может включить это разрешение за пользователя.
 
 ---
 
@@ -168,7 +177,7 @@ Telegram-сессия хранится здесь:
 
 ```bash
 sudo git clone \
-  --branch v1.0.0 \
+  --branch v1.0.1 \
   --depth 1 \
   https://github.com/MMonyx/tg-pushover-relay.git \
   /opt/tg-pushover-relay
@@ -743,7 +752,7 @@ systemd перезапустит процесс после failure.
 
 ## Можно ли подключить больше одного source bot?
 
-Не в текущем дизайне v1.0.0.
+Не в текущем дизайне v1.0.1.
 
 Production configuration принимает один `TELEGRAM_SOURCE_ID`.
 
@@ -755,11 +764,11 @@ Production configuration принимает один `TELEGRAM_SOURCE_ID`.
 /var/lib/tg-pushover-relay/telegram.session
 ```
 
-Одновременный запуск нескольких копий без явного разделения session/config paths не входит в поддерживаемый сценарий v1.0.0.
+Одновременный запуск нескольких копий без явного разделения session/config paths не входит в поддерживаемый сценарий v1.0.1.
 
 ## Можно ли изменить заголовок Pushover?
 
-В v1.0.0 заголовок зафиксирован в коде:
+В v1.0.1 заголовок зафиксирован в коде:
 
 ```text
 Telegram Alert
@@ -767,9 +776,7 @@ Telegram Alert
 
 ## Можно ли изменить Pushover sound или priority?
 
-v1.0.0 не отправляет поля `sound` и `priority`.
-
-Поэтому применяется стандартное поведение Pushover.
+v1.0.1 отправляет фиксированный `priority=1` (High). Поле `sound` не передаётся — выберите звук в Pushover. Для отдельной громкости на iPhone настройте Critical Alerts по инструкции выше. Emergency-повторы не включены.
 
 ## Что приложить к bug report?
 
@@ -824,7 +831,7 @@ docs/
 
 # Статус релиза
 
-`v1.0.0` — первый замороженный production-релиз текущей архитектуры.
+`v1.0.1` добавляет `priority=1` к первому замороженному production-релизу `v1.0.0`. Изменение проверено на VPS и iPhone. Фильтрация, проверка свежести и обработка доставки не изменены.
 
 Основные свойства:
 
@@ -849,9 +856,9 @@ A small Linux daemon that forwards fresh private Telegram alerts from **one expl
 
 The relay uses a normal Telegram user session through Telethon, applies a strict numeric sender-ID filter, and forwards only eligible text/caption content to Pushover.
 
-Current stable production release: **v1.0.0**
+Current stable production release: **v1.0.1**
 
-**Post-v1.0.0 change:** this code sends `priority=1` (High), without emergency repetitions. It omits `sound`, preserving the sound selected in Pushover. For separate alert volume on iPhone, enable **Critical Alerts for high-priority** in Pushover, grant iOS Critical Alerts permission, and adjust their volume. `priority=1` alone does not increase volume. The default behavior documented below applies to the v1.0.0 tag.
+**In v1.0.1:** notifications use `priority=1` (High), without emergency repetitions. The sound selected in Pushover is preserved. iPhone Critical Alerts setup is described below.
 
 ---
 
@@ -947,7 +954,16 @@ The relay sends messages to:
 https://api.pushover.net/1/messages.json
 ```
 
-It does not set a custom Pushover sound or priority. Pushover's normal/default behavior applies.
+The relay sends `priority=1` (High). It omits `sound`, preserving the sound selected in Pushover, including custom sounds. It does not enable emergency repetitions or acknowledgement.
+
+### Loud alerts on iPhone
+
+1. Enable **Critical Alerts for high-priority** in Pushover settings.
+2. Grant iOS Critical Alerts permission when prompted. If previously denied, check Pushover notification permissions in iOS settings.
+3. Set the separate Critical Alerts volume and select the desired high-priority sound if the app offers a separate choice.
+4. Once the relay is running, lock your iPhone and trigger one new alert from the configured Telegram bot. Verify the sound and volume.
+
+`priority=1` alone does not increase volume. Critical Alerts can sound despite silent mode and Do Not Disturb. The relay cannot grant this permission on the user's behalf.
 
 ---
 
@@ -1007,7 +1023,7 @@ Install the frozen production release rather than an arbitrary development branc
 
 ```bash
 sudo git clone \
-  --branch v1.0.0 \
+  --branch v1.0.1 \
   --depth 1 \
   https://github.com/MMonyx/tg-pushover-relay.git \
   /opt/tg-pushover-relay
@@ -1582,7 +1598,7 @@ This process recovery does not recover Telegram alerts that were missed during d
 
 ## Can I run more than one source bot?
 
-Not with the current v1.0.0 design.
+Not with the current v1.0.1 design.
 
 The production configuration accepts one `TELEGRAM_SOURCE_ID`.
 
@@ -1594,11 +1610,11 @@ The current release is designed as one small service using one fixed session pat
 /var/lib/tg-pushover-relay/telegram.session
 ```
 
-Running multiple copies without intentionally separating their session/configuration paths is not part of the supported v1.0.0 design.
+Running multiple copies without intentionally separating their session/configuration paths is not part of the supported v1.0.1 design.
 
 ## Can I change the Pushover title?
 
-The current v1.0.0 title is fixed in code as:
+The current v1.0.1 title is fixed in code as:
 
 ```text
 Telegram Alert
@@ -1606,9 +1622,7 @@ Telegram Alert
 
 ## Can I change Pushover sound or priority?
 
-v1.0.0 does not send explicit `sound` or `priority` fields.
-
-Pushover's default behavior therefore applies.
+v1.0.1 sends a fixed `priority=1` (High). It omits `sound`; choose your sound in Pushover. For separate iPhone volume, configure Critical Alerts as described above. Emergency repetitions are not enabled.
 
 ## What should I include when reporting a problem?
 
@@ -1663,7 +1677,7 @@ docs/
 
 # Release status
 
-`v1.0.0` is the first frozen production release of the current architecture.
+`v1.0.1` adds `priority=1` to the first frozen production release, `v1.0.0`. The change was verified on a VPS and iPhone. Filtering, freshness checks, and delivery handling are unchanged.
 
 Its key properties are:
 
