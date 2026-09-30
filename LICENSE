@@ -1,0 +1,120 @@
+TG → Pushover Relay Personal Use License v1.0
+
+Copyright (c) 2026 MMonyx. All rights reserved.
+
+This software is source-available software. It is not licensed as open-source
+software under an OSI-approved license.
+
+1. PERSONAL, PRIVATE, NON-COMMERCIAL USE
+
+Subject to the terms of this License, the copyright holder grants an
+individual natural person a revocable, non-exclusive, non-transferable,
+non-sublicensable license to download, copy, install, run, and modify the
+Software solely for that person's own private, personal, non-commercial use
+on systems and accounts that person controls.
+
+2. PROHIBITED USE
+
+Without prior written permission from the copyright holder, you may not:
+
+a. use the Software for any commercial, business, professional, institutional,
+   organizational, revenue-generating, or paid purpose;
+
+b. sell, rent, lease, sublicense, monetize, or provide the Software or a
+   service based on the Software to another person or entity;
+
+c. redistribute, republish, mirror, bundle, or otherwise make copies of the
+   Software or modified versions available to third parties, except for rights
+   that GitHub itself necessarily provides to users of a public repository
+   under GitHub's applicable terms;
+
+d. remove or alter copyright, license, or attribution notices; or
+
+e. represent the Software as being endorsed, warranted, certified, or
+   supported by the copyright holder.
+
+Any permission not expressly granted by this License is reserved.
+
+3. THIRD-PARTY SOFTWARE AND SERVICES
+
+The Software depends on third-party software and communicates with third-party
+services, including Telegram, Telethon, HTTPX, and Pushover. Those components
+and services are governed by their own licenses, terms, policies, limits, and
+availability. This License does not grant rights to third-party software,
+services, names, trademarks, or APIs.
+
+4. USER RESPONSIBILITY AND ASSUMPTION OF RISK
+
+You are solely responsible for installing, configuring, securing, operating,
+monitoring, and maintaining the Software and the server, accounts,
+credentials, session files, network access, and third-party services used
+with it.
+
+You understand and accept that the Software may, among other things:
+
+- fail to deliver, delay, truncate, or duplicate a notification;
+- miss notifications during process, server, network, Telegram, or Pushover
+  downtime;
+- stop working because of operating-system, dependency, API, account, or
+  third-party-service changes;
+- expose credentials, session data, messages, or other information if it is
+  installed, configured, operated, logged, backed up, or shared insecurely;
+- cause account, service, or infrastructure consequences if used contrary to
+  third-party rules or applicable law.
+
+You assume all risks arising from possession, installation, configuration,
+modification, operation, or use of the Software.
+
+The Software must not be relied upon as the sole notification channel for
+emergency, life-safety, medical, security-critical, financial-critical, or
+other use where a missed, delayed, duplicated, or incorrect notification
+could cause material harm.
+
+5. NO WARRANTY
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE SOFTWARE IS PROVIDED
+"AS IS" AND "AS AVAILABLE", WITH ALL FAULTS AND WITHOUT WARRANTY OF ANY KIND,
+EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE, INCLUDING WITHOUT LIMITATION
+WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE,
+NON-INFRINGEMENT, SECURITY, RELIABILITY, ACCURACY, AVAILABILITY, OR
+ERROR-FREE OPERATION.
+
+THE COPYRIGHT HOLDER DOES NOT WARRANT THAT THE SOFTWARE WILL CONTINUE TO WORK
+WITH TELEGRAM, PUSHOVER, TELETHON, HTTPX, ANY OPERATING SYSTEM, OR ANY OTHER
+THIRD-PARTY SOFTWARE OR SERVICE.
+
+6. NO SUPPORT OR MAINTENANCE OBLIGATION
+
+The copyright holder has no obligation to provide support, maintenance,
+updates, fixes, compatibility work, security patches, documentation,
+migration assistance, or continued availability of the Software.
+
+7. LIMITATION OF LIABILITY
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL THE
+COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+INCIDENTAL, SPECIAL, EXEMPLARY, PUNITIVE, OR CONSEQUENTIAL DAMAGES, OR FOR
+ANY LOSS OF DATA, MESSAGES, NOTIFICATIONS, PROFITS, REVENUE, BUSINESS,
+GOODWILL, ACCOUNT ACCESS, SERVICE ACCESS, SECURITY, OR OTHER LOSS, ARISING
+FROM OR RELATED TO THE SOFTWARE OR ITS USE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+
+YOUR USE OF THE SOFTWARE IS ENTIRELY AT YOUR OWN RISK.
+
+8. TERMINATION
+
+Your rights under this License terminate automatically if you violate its
+terms. Upon termination, you must stop using the Software and delete copies
+in your possession or control, except where retention is required by law.
+
+9. NO TRADEMARK RIGHTS
+
+This License grants no right to use the copyright holder's names, usernames,
+logos, or marks except as reasonably necessary to identify the origin of an
+unmodified copy of the Software.
+
+10. ENTIRE LICENSE
+
+This License states the permissions granted by the copyright holder for the
+Software. If any provision is unenforceable, the remaining provisions remain
+in effect to the maximum extent permitted by applicable law.

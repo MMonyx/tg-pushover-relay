@@ -1,0 +1,29 @@
+[Unit]
+Description=TG to Pushover Relay
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=tgrelay
+Group=tgrelay
+WorkingDirectory=/opt/tg-pushover-relay
+EnvironmentFile=/etc/tg-pushover-relay.env
+ExecStart=/opt/tg-pushover-relay/.venv/bin/python /opt/tg-pushover-relay/relay.py
+
+Restart=on-failure
+RestartSec=5
+
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+UMask=0077
+ReadWritePaths=/var/lib/tg-pushover-relay
+
+[Install]
+WantedBy=multi-user.target

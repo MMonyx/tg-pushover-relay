@@ -1,0 +1,68 @@
+# Secrets and environment files
+.env
+.env.*
+!.env.example
+!.env.sample
+*.env
+*.secret
+*.secrets
+secrets/
+.secrets/
+credentials/
+.credentials/
+
+# Telegram / Telethon session data
+*.session
+*.session-journal
+*.session-shm
+*.session-wal
+
+# Private keys and local certificates
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Python virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python caches and tooling
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Python packaging/build output
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Logs and runtime output
+*.log
+logs/
+*.pid
+
+# Local configuration / temporary files
+*.local
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# IDE/editor metadata
+.idea/
+.vscode/
+
+# OS metadata
+.DS_Store
+Thumbs.db
